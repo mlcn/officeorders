@@ -13,3 +13,5 @@ sergeyt:typeahead
 less
 mrt:bootstrap-3
 mdg:geolocation
+iron:router
+aldeed:collection2

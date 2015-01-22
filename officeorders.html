@@ -7,20 +7,14 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="page-header">
-          <a class="add btn btn-success pull-right" href="#" role="button">
-          {{#if neworderpressed}}
-          Cancel
-          {{else}}
-          Add New Order
-          {{/if}}</a>
+          <a class="add btn btn-success pull-right" href="/offices/add" role="button">
+          Add New Office
+         </a>
           <h1><a href="/">Order Food</a></h1>
           {{> location}}
         </div>
       </div>
     </div>
-    {{#with neworderpressed}}
-    {{> neworder}}
-    {{/with}}
   </div>
 </body>
 
@@ -28,26 +22,5 @@
   <div>You are located at: {{address}}</div>
 </template>
 
-<template name="allOrders">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <ul class="list-group">
-          {{#each orders}}
-          {{> order}}
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
-</template>
-
-
-<template name="order">
-  <li class="list-group-item">
-    <a href="{{url}}" target="_blank">{{title}}</a>
-    <a href="/news/{{urlTitle}}" class="badge no-style">comments</a>
-  </li>
-</template>
 
 

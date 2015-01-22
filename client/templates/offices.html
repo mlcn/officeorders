@@ -1,0 +1,38 @@
+<template name="offices">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <ul class="list-group">
+          {{#each offices}}
+          {{> office}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="addOffice">
+<div>
+    {{#autoForm collection="Offices" id="addOfficeForm" type="insert"}}
+    <fieldset>
+      <legend>Add an Office</legend>
+      {{> afQuickField name='company'}}
+      {{> afQuickField name='room'}}
+      {{> afQuickField name='floor'}}
+      {{> afQuickField name='domain'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Add</button>
+  {{/autoForm}}
+  </div>
+</template>
+
+<template name="office">
+  <li class="officeitem list-group-item"> 
+   {{company}} {{room}} {{floor}} {{domain}}
+   <span class="badge">{{ActiveOrders}}</span>
+  </li>
+  {{#if edit}}
+  aaaa
+  {{/if}}
+</template>

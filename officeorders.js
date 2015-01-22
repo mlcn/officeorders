@@ -1,21 +1,61 @@
 Orders = new Mongo.Collection("orders")
+Offices = new Mongo.Collection("offices");
+
+var Schemas = {};
+
+//============ Routers ===========
+Router.route('/', function () {
+    this.render('offices');
+},{
+    name:'offices.all'
+});
+
+Router.route('/offices/add', function () {
+    this.render('addOffice');
+},{
+    name: 'office.add'
+});
+//=============================
+
+//============ Schemas ========
+Schemas.Offices = new SimpleSchema({
+    company: {
+        type: String,
+        label: "Company name",
+        max: 200
+    },
+    room: {
+        type: String,
+        label: "Room #",
+        optional: true
+    },
+    floor: {
+        type: String,
+        label: "Floor",
+        optional: true
+    },
+    domain: {
+        type: String,
+        label: "Domain (e.g.softreactor.com)",
+        optional: true
+    },
+    summary: {
+        type: String,
+        label: "Brief summary",
+        optional: true,
+        max: 1000
+    }
+});
+//=============================
+
+Offices.attachSchema(Schemas.Offices);
 
 if (Meteor.isClient) {
 
   Template.location.helpers({
     address: function()
     {
-      console.log(Session.get('address'));
-
-      return Session.get('address');
-    }
-  })
-
-  Template.body.helpers(
-  {
-    neworderpressed: function()
-    {
-        return Session.get('addneworder-visible')
+          return Session.get('address');
     }
   })
 
@@ -39,31 +79,7 @@ if (Meteor.isClient) {
         })
       });
     }
-    if (Session.get('addneworder-visible') == undefined)
-    {
-      Session.set('addneworder-visible', false);
-    }
   }
-
-  Template.body.events(
-  {
-    "click .add" : function(event)
-    {
-      event.preventDefault();
-      event.stopPropagation();
-      var addnewordervisible=Session.get('addneworder-visible');
-      if (addnewordervisible === false || undefined)
-      {
-        addnewordervisible=true;
-      }
-      else
-      {
-        addnewordervisible=false;
-      }
-      Session.set('addneworder-visible', addnewordervisible);
-    }
-  }
-  );
 }
 
 if (Meteor.isServer) {
