@@ -13,17 +13,20 @@
 </template>
 
 <template name="addOffice">
-<div>
+ <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
     {{#autoForm collection="Offices" id="addOfficeForm" type="insert"}}
-    <fieldset>
       <legend>Add an Office</legend>
-      {{> afQuickField name='company'}}
-      {{> afQuickField name='room'}}
-      {{> afQuickField name='floor'}}
-      {{> afQuickField name='domain'}}
-    </fieldset>
+      {{> afQuickField name='company'}}<br/>
+      {{> afQuickField name='room'}}<br/>
+      {{> afQuickField name='floor'}}<br/>
+      {{> afQuickField name='domain'}}<br/>
     <button type="submit" class="btn btn-primary">Add</button>
   {{/autoForm}}
+
+  </div>
+  </div>
   </div>
 </template>
 
