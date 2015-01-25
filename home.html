@@ -1,0 +1,34 @@
+<head>
+  <title>Order Food</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-xs-5 col-xs-offset-1">
+        <h1><a href="/">Order Food</a></h1>
+        {{> location}}
+      </div>
+      <div class="col-xs-2">
+        {{#if currentUser}}
+        <a class="add btn btn-success pull-right" href="/offices/add" role="button">
+          Add New Office
+        </a>
+        {{else}}
+        <div class="loginButtons pull-right">
+          {{>loginButtons}}
+        </div>
+        {{/if}}
+      </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="location">
+  <div>You are located at: {{address}}</div>
+</template>
+
+
+

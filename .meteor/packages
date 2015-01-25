@@ -15,3 +15,8 @@ mrt:bootstrap-3
 mdg:geolocation
 iron:router
 aldeed:collection2
+accounts-ui
+accounts-password
+accounts-facebook
+accounts-twitter
+accounts-google

@@ -24,18 +24,26 @@ Template.office.helpers(
  edit : function()
  {
   return Session.get('edit-' + this._id);
-  }
+}
 });
 
 AutoForm.hooks({
   addOfficeForm: {
+    before: {
+      "addNewOffice": function(doc)
+      {
+        doc.geoAddress = Session.get('address');
+        console.log(doc);
+        return doc;
+      }
+    },
     onSuccess: 
     
-      function()
-      {
+    function()
+    {
         Router.go('offices.all'); //load new route
         return false;
       }
-    
-  }
-})
+    }
+  })
+

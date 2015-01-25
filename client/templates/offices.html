@@ -14,28 +14,44 @@
 
 <template name="addOffice">
  <div class="container">
-        <div class="row">
-            <div class="col-xs-4 col-xs-offset-4">
-    {{#autoForm collection="Offices" id="addOfficeForm" type="insert"}}
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+    {{#autoForm collection="Offices" id="addOfficeForm" type="method" meteormethod="addNewOffice" template="bootstrap3-inline" label-class="sr-only"}}
       <legend>Add an Office</legend>
-      {{> afQuickField name='company'}}<br/>
-      {{> afQuickField name='room'}}<br/>
-      {{> afQuickField name='floor'}}<br/>
-      {{> afQuickField name='domain'}}<br/>
-    <button type="submit" class="btn btn-primary">Add</button>
-  {{/autoForm}}
+      {{> afQuickField name='company'}}
+      {{> afQuickField name='room'}}
+      {{> afQuickField name='floor'}}
+      {{> afQuickField name='domain'}}
+      <button type="submit" class="btn btn-primary">Add</button>
+      {{/autoForm}}
 
+    </div>
   </div>
-  </div>
-  </div>
+</div>
 </template>
 
 <template name="office">
-  <li class="officeitem list-group-item"> 
-   {{company}} {{room}} {{floor}} {{domain}}
-   <span class="badge">{{ActiveOrders}}</span>
-  </li>
-  {{#if edit}}
-  aaaa
-  {{/if}}
+  <a href="/offices/{{companyTitle}}">
+    <li class="officeitem list-group-item"> 
+     {{company}} {{room}} {{floor}} {{domain}}
+     <span class="badge">{{activeOrders}}</span>
+   </li>
+   {{#if edit}}
+   aaaa
+   {{/if}}
+ </a>
+</template>
+
+<template name="officeView">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+
+        <li class="officeitem list-group-item"> 
+         {{company}} {{room}} {{floor}} {{domain}}
+         <span class="badge">{{activeOrders}}</span>
+       </li>
+     </div>
+   </div>
+ </div>
 </template>
