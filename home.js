@@ -17,13 +17,13 @@ Router.route('/offices/add', function () {
 });
 
 Router.route('/offices/:company', function () {
-    this.render('officeView', {
-        data: function () {
-            return Offices.findOne({companyTitle: this.params.company});
-        }
-    });
+  this.render('officeView', {
+    data: function () {
+      return Offices.findOne({companyTitle: this.params.company});
+    }
+  });
 },{
-    name: 'office.single'
+  name: 'office.single'
 });
 //=============================
 
@@ -99,12 +99,12 @@ Offices.attachSchema(Schemas.Offices);
 
 if (Meteor.isClient) {
 
-  Template.location.helpers({
-    address: function()
+  UI.registerHelper("address", function()
     {
       return Session.get('address');
     }
-  })
+  );
+
 
   Template.body.rendered = function()
   {
@@ -116,8 +116,6 @@ if (Meteor.isClient) {
         if (status = google.maps.GeocoderStatus.OK)
         {
           Session.set('address', results[0].formatted_address);
-          console.log(results[0])
-          console.log(results[1])
         }
         else
         {
@@ -126,6 +124,20 @@ if (Meteor.isClient) {
       })
     });
   }
+
+  Template.location.rendered = function() {
+    window.onload = function() {
+      var autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('autocomplete')),{types: ['geocode'] }
+        );
+      google.maps.event.addListener(autocomplete, 'place_changed', function()
+      {
+        var place = autocomplete.getPlace();
+        Session.set('address', place.formatted_address);
+      })
+    }
+  };
+  
 }
 
 if (Meteor.isServer) {

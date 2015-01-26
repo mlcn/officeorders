@@ -9,13 +9,22 @@
         </ul>
       </div>
     </div>
+    <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+     {{#if currentUser}}
+    <a class="add btn btn-success pull-right" href="/offices/add" role="button">
+      Add New Office
+    </a>
+    {{/if}}
+    </div>
+    </div>
   </div>
 </template>
 
 <template name="addOffice">
  <div class="container">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-4">
+    <div class="col-xs-8 col-xs-offset-2">
     {{#autoForm collection="Offices" id="addOfficeForm" type="method" meteormethod="addNewOffice" template="bootstrap3-inline" label-class="sr-only"}}
       <legend>Add an Office</legend>
       {{> afQuickField name='company'}}
