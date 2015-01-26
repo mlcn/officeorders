@@ -1,31 +1,31 @@
 <template name="offices">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
+  <div class="container-fluid">
+    {{> location}}
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Offices here:</div>
+      <div class="panel-body">  
         <ul class="list-group">
           {{#each offices}}
           {{> office}}
           {{/each}}
         </ul>
       </div>
-    </div>
-    <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-     {{#if currentUser}}
-    <a class="add btn btn-success pull-right" href="/offices/add" role="button">
-      Add New Office
-    </a>
-    {{/if}}
-    </div>
+      <div classs="panel-footer">{{#if currentUser}}
+       <a class="add btn btn-success pull-right" href="/offices/add" role="button">
+        Add New Office
+      </a>
+      {{/if}} 
     </div>
   </div>
+</div>
 </template>
 
 <template name="addOffice">
  <div class="container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-    {{#autoForm collection="Offices" id="addOfficeForm" type="method" meteormethod="addNewOffice" template="bootstrap3-inline" label-class="sr-only"}}
+      {{#autoForm collection="Offices" id="addOfficeForm" type="method" meteormethod="addNewOffice" template="bootstrap3-inline" label-class="sr-only"}}
       <legend>Add an Office</legend>
       {{> afQuickField name='company'}}
       {{> afQuickField name='room'}}
@@ -52,15 +52,15 @@
 </template>
 
 <template name="officeView">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
-
-        <li class="officeitem list-group-item"> 
-         {{company}} {{room}} {{floor}} {{domain}}
-         <span class="badge">{{activeOrders}}</span>
-       </li>
-     </div>
-   </div>
- </div>
+  <div class="container-fluid">
+   <div class="panel panel-default">
+    <div class="panel-heading"><strong>{{company}}</strong> <small>{{geoAddress}}</small>
+    <span class="badge pull-right">Active orders: {{activeOrders}}</span></div>
+    <div class="panel-body">  
+      <p>{{room}}</p>
+      <p>{{floor}}</p>
+      <p>{{summary}}</p>
+    </div>
+  </div>
+</div>
 </template>
