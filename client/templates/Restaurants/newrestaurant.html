@@ -14,14 +14,12 @@
 <template name="newRestaurant">
 <div class="collapse" id="newRestaurant">
   <div class="well">
+  {{> quickForm id="addRestaurant" schema="Schemas.Restaurants" type="insert" template="bootstrap3-inline" label-class="sr-only" afFieldInput-placeholder="schemaLabel"}}
+
     {{#autoForm collection="Restaurants" id="insertRestaurant" type="insert"}}
     <fieldset>
-      <legend>Add a Book</legend>
-      {{> afQuickField name='title'}}
-      {{> afQuickField name='author'}}
-      {{> afQuickField name='summary' rows=6}}
-      {{> afQuickField name='copies'}}
-      {{> afQuickField name='lastCheckedOut'}}
+      <legend>Add a Restaurant</legend>
+      {{> afQuickField name='name'}}
     </fieldset>
     <button type="submit" class="btn btn-primary">Insert</button>
   {{/autoForm}}
