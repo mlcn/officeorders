@@ -1,7 +1,6 @@
 <template name="offices">
   <div class="container-fluid">
     {{> location}}
-
     <div class="panel panel-default">
       <div class="panel-heading">Offices here:</div>
       <div class="panel-body">  
@@ -60,6 +59,13 @@
       <p>{{room}}</p>
       <p>{{floor}}</p>
       <p>{{summary}}</p>
+      {{#if currentUser}}
+      <div>
+        <a class="add btn btn-success pull-right" href="/{{companyTitle}}/neworder" role="button">
+        Add New Order
+      </a>
+      </div>
+      {{/if}}
     </div>
   </div>
 </div>

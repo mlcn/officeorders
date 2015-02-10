@@ -1,3 +1,27 @@
-<template name="neworder">
-	New Order Goes Here
-</template>
+<template name="newOrder">
+	<div class="container-fluid">
+		<div class="panel panel-default">
+			<div class="panel-heading"><strong>Add new order for {{company}}</strong> <small>{{geoAddress}}</small>
+				<span class="badge pull-right">Active orders: {{activeOrders}}</span></div>
+				<div class="panel-body">  
+					Pick a restaurant 
+					{{#if currentUser}}
+					or <a href="#newrestaurant" role="button" class="new_restaurant">create new</a>
+					{{/if}}
+					<div id="restaurantField">
+						<input id="restaurant" class="form-control" placeholder="Pick restaurant" type="text">
+					</div>
+
+					{{#if currentUser}}
+					{{#if addNewRestaurant}}
+					<br/>
+					{{> newRestaurant}}
+					
+					{{/if}}
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</template>
+
+	

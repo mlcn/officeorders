@@ -1,5 +1,6 @@
 Orders = new Mongo.Collection("orders")
 Offices = new Mongo.Collection("offices");
+Restaurants = new Mongo.Collection("restaurants");
 
 var Schemas = {};
 
@@ -24,6 +25,16 @@ Router.route('/offices/:company', function () {
   });
 },{
   name: 'office.single'
+});
+
+Router.route('/:company/neworder', function () {
+  this.render('newOrder', {
+    data: function () {
+      return Offices.findOne({companyTitle: this.params.company});
+    }
+  });
+},{
+  name: 'office.neworder'
 });
 //=============================
 
@@ -93,6 +104,7 @@ Schemas.Offices = new SimpleSchema({
     optional: true,
   }
 });
+
 //=============================
 
 Offices.attachSchema(Schemas.Offices);

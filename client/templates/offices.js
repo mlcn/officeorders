@@ -19,6 +19,16 @@ Template.offices.helpers(
   }
 });
 
+Template.officeView.helpers(
+{
+  officeID: function()
+  {
+    return this.companyTitle;
+  }
+}
+  )
+
+
 Template.office.helpers(
 {
  edit : function()
@@ -33,7 +43,6 @@ AutoForm.hooks({
       "addNewOffice": function(doc)
       {
         doc.geoAddress = Session.get('address');
-        console.log(doc);
         return doc;
       }
     },
