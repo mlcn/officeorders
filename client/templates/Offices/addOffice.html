@@ -1,0 +1,16 @@
+<template name="addOffice">
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      {{#autoForm collection="Offices" id="addOfficeForm" type="method" meteormethod="addNewOffice" template="bootstrap3-inline" label-class="sr-only"}}
+      <legend>Add an Office</legend>
+      {{> afQuickField name='company'}}
+      {{> afQuickField name='room'}}
+      {{> afQuickField name='floor'}}
+      {{> afQuickField name='domain'}}
+      <button type="submit" class="btn btn-primary">Add</button>
+      {{/autoForm}}
+    </div>
+  </div>
+</div>
+</template>

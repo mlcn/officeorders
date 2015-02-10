@@ -1,4 +1,4 @@
-Template.officeView.helpers(
+Template.officeDetails.helpers(
 {
 	officeID: function()
 	{

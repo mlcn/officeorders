@@ -1,0 +1,21 @@
+<template name="offices">
+  <div class="container-fluid">
+    {{> location}}
+    <div class="panel panel-default">
+      <div class="panel-heading">Offices here:</div>
+      <div class="panel-body">  
+        <ul class="list-group">
+          {{#each offices}}
+          {{> officeListItem}}
+          {{/each}}
+        </ul>
+      </div>
+      <div classs="panel-footer">{{#if currentUser}}
+       <a class="add btn btn-success pull-right" href="/offices/add" role="button">
+        Add New Office
+      </a>
+      {{/if}} 
+    </div>
+  </div>
+</div>
+</template>

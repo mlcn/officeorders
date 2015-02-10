@@ -1,4 +1,4 @@
-Template.office.helpers(
+Template.officeListItem.helpers(
 {
  edit : function()
  {
