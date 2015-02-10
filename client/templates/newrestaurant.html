@@ -1,4 +1,4 @@
-<template name="newRestaurant">
+<!-- <template name="newRestaurant">
 	<div class="container-fluid">
 		<div class="panel panel-default">
 			<div class="panel-heading"><strong>Add new restaurant</strong> 
@@ -9,5 +9,22 @@
 			</div>
 		</div>
 	</div>
-</template>
+</template> -->
 
+<template name="newRestaurant">
+<div class="collapse" id="newRestaurant">
+  <div class="well">
+    {{#autoForm collection="Restaurants" id="insertRestaurant" type="insert"}}
+    <fieldset>
+      <legend>Add a Book</legend>
+      {{> afQuickField name='title'}}
+      {{> afQuickField name='author'}}
+      {{> afQuickField name='summary' rows=6}}
+      {{> afQuickField name='copies'}}
+      {{> afQuickField name='lastCheckedOut'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Insert</button>
+  {{/autoForm}}
+  </div>
+</div>
+</template>

@@ -5,19 +5,14 @@
 				<span class="badge pull-right">Active orders: {{activeOrders}}</span></div>
 				<div class="panel-body">  
 					Pick a restaurant 
-					{{#if currentUser}}
-					or <a href="#newrestaurant" role="button" class="new_restaurant">create new</a>
-					{{/if}}
 					<div id="restaurantField">
 						<input id="restaurant" class="form-control" placeholder="Pick restaurant" type="text">
 					</div>
 
 					{{#if currentUser}}
-					{{#if addNewRestaurant}}
+					or <a href="#" role="button" data-toggle="collapse" data-target="#newRestaurant">create new</a>
 					<br/>
 					{{> newRestaurant}}
-					
-					{{/if}}
 					{{/if}}
 				</div>
 			</div>
