@@ -4,13 +4,15 @@
 			<div class="panel-heading"><strong>Add new order for {{company}}</strong> <small>{{geoAddress}}</small>
 				<span class="badge pull-right">Active orders: {{activeOrders}}</span></div>
 				<div class="panel-body">  
-					Pick a restaurant 
-					<div id="restaurantField">
-						<input id="restaurant" class="form-control" placeholder="Pick restaurant" type="text">
-					</div>
+					Pick a restaurant {{#if currentUser}}
+					or <a href="#" role="button" data-toggle="collapse" data-target="#newRestaurant">create new</a>
+					<br/>
+					{{/if}}
+
+					<input id="restaurant" class="form-control typeahead" name="restaurant" placeholder="Pick restaurant" type="text" autocomplete="off" spellcheck="off" data-source="getRestaurants" data-opened="opened" data-closed="closed" data-selected="selected" data-autocompleted="autocompleted" data-templates = "repo">
+
 
 					{{#if currentUser}}
-					or <a href="#" role="button" data-toggle="collapse" data-target="#newRestaurant">create new</a>
 					<br/>
 					{{> newRestaurant}}
 					{{/if}}
@@ -19,4 +21,8 @@
 		</div>
 	</template>
 
-	
+	<template name="repo">
+	<p class="repo-language">{{kitchen}}</p>
+	<p class="repo-name">{{name}}</p>
+	<p class="repo-description">{{address.street}}</p>
+</template>

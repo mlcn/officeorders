@@ -9,7 +9,6 @@ autopublish
 insecure
 mrt:googlemaps
 aldeed:autoform
-sergeyt:typeahead
 less
 mrt:bootstrap-3
 mdg:geolocation
@@ -20,3 +19,5 @@ accounts-password
 accounts-facebook
 accounts-twitter
 accounts-google
+mizzao:autocomplete
+sergeyt:typeahead

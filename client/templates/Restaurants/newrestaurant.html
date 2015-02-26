@@ -14,15 +14,7 @@
 <template name="newRestaurant">
 <div class="collapse" id="newRestaurant">
   <div class="well">
-  {{> quickForm id="addRestaurant" schema="Schemas.Restaurants" type="insert" template="bootstrap3-inline" label-class="sr-only" afFieldInput-placeholder="schemaLabel"}}
-
-    {{#autoForm collection="Restaurants" id="insertRestaurant" type="insert"}}
-    <fieldset>
-      <legend>Add a Restaurant</legend>
-      {{> afQuickField name='name'}}
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Insert</button>
-  {{/autoForm}}
+  {{> quickForm id="addRestaurant" collection="Restaurants" afFieldInput-placeholder="schemaLabel" type="insert"}}
   </div>
 </div>
 </template>
