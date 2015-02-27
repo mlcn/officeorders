@@ -6,7 +6,7 @@ Template.location.rendered = function() {
       google.maps.event.addListener(autocomplete, 'place_changed', function()
       {
         var place = autocomplete.getPlace();
-        Session.set('address', place.formatted_address);
+        Session.set('address', place);
       })
     }
   };

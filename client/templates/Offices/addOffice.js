@@ -3,7 +3,7 @@ AutoForm.hooks({
     before: {
       "addNewOffice": function(doc)
       {
-        doc.geoAddress = Session.get('address');
+        doc.googlePlace = Session.get('address');
         return doc;
       }
     },

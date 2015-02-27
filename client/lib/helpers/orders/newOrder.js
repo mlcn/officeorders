@@ -1,6 +1,5 @@
 var getRestaurants = function() {
 		return Restaurants.find().fetch().map(function(it){
-			console.log(it);
 			return {value: it.name, id: it._id, name: it.name, kitchen: it.kitchen};
 		});
 	};

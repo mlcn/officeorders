@@ -16,7 +16,7 @@ if (Meteor.isClient) {
       {
         if (status = google.maps.GeocoderStatus.OK)
         {
-          Session.set('address', results[0].formatted_address);
+          Session.set('address', results[0]);
         }
         else
         {
